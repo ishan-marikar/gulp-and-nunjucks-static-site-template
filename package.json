@@ -4,13 +4,13 @@
   "description": "A simple gulp and nunjucks template to build static sites",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "./node_modules/.bin/gulp watch"
+    "start": "./node_modules/.bin/gulp"
   },
   "author": "Ishan Marikar <ishan.marikar@outlook.com>",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.10.1",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
     "gulp-nunjucks-render": "^1.0.0"
   }
 }

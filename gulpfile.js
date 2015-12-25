@@ -34,9 +34,8 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('watch', function() {
-  console.log(paths, assets);
+gulp.task('watch', ['nunjucks', 'browser-sync'],  function() {
   gulp.watch(assets.templates.watch, ['nunjucks']).on("change", browserSync.reload);
 });
 
-gulp.task('default', ['watch', 'browser-sync']);
+gulp.task('default', ['watch']);
