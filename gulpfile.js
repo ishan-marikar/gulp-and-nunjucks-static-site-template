@@ -5,6 +5,7 @@ var browserSync = require('browser-sync').create();
 var paths = {
   source: 'src/',
   destination: 'dist/',
+  public: 'public/'
 };
 
 var assets = {
@@ -12,10 +13,16 @@ var assets = {
     path: paths.source + 'templates',
     glob: paths.source + 'pages/**/*.+(html|nunjucks)',
     watch: paths.source + '**/*.html'
-  }
+  },
+  public: paths.public + '**/*.*'
 };
 
-gulp.task('nunjucks', function() {
+gulp.task('copy-assets', function(){
+  return gulp.src(assets.public)
+  .pipe(gulp.dest(paths.destination));
+});
+
+gulp.task('nunjucks', ['copy-assets'], function() {
   nunjucksRender.nunjucks.configure([assets.templates.path]);
   // Gets .html and .nunjucks files in pages
   return gulp.src(assets.templates.glob)
